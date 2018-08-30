@@ -1,0 +1,39 @@
+{
+  "name": "webpack-fe-template",
+  "version": "0.0.1",
+  "description": "A template for front end projects using webpack",
+  "main": "src/app.js",
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack-dev-server",
+    "watch:test": "karma start --auto-watch --no-single-run --reporters dots",
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckanz/webpack-fe-template.git"
+  },
+  "author": "Clemens Anzmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ckanz/webpack-fe-template/issues"
+  },
+  "homepage": "https://github.com/ckanz/webpack-fe-template#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jasmine-es6": "^0.4.3",
+    "karma": "^3.0.0",
+    "karma-jasmine": "^1.1.2",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^3.0.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  }
+}
