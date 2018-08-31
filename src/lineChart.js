@@ -3,8 +3,15 @@ import { scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
 import { max } from 'd3-array';
 
-export default () => {
-  const data = [2, 6, 1, 9, 8, 7];
+const dataIsValid = data => {
+  return data && data.length > 0;
+};
+
+export default data => {
+  if (!dataIsValid(data)) {
+    return;
+  }
+
   const height = 200;
   const width = 800;
 
@@ -21,13 +28,21 @@ export default () => {
 
   const svg = select('#chart-container')
     .append('svg')
+    .attr('id', 'chart-svg')
     .attr('width', width)
     .attr('height', height);
 
   svg.append('path')
+    .attr('id', 'chart-line')
     .datum(data)
     .attr('fill', 'none')
     .attr('stroke', 'yellow')
     .attr('stroke-width', 3)
     .attr('d', myLine);
+
+  return svg;
+};
+
+export {
+  dataIsValid
 };
