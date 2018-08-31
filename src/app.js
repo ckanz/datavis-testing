@@ -1,5 +1,4 @@
-import renderApp from './module';
-import './style.css';
+import renderLine from './lineChart';
 
-renderApp();
+renderLine();
 

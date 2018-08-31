@@ -1,9 +1,9 @@
-import renderApp from '../src/module';
+import renderLine from '../src/lineChart';
 
 describe('renderApp', () => {
   beforeEach(() => {
     const myDiv = document.createElement('div');
-    myDiv.id = 'js-div';
+    myDiv.id = 'chart-container';
     document.body.appendChild(myDiv);
   });
   afterEach(() => {
@@ -11,9 +11,5 @@ describe('renderApp', () => {
   });
   it('imports function', () => {
     expect(renderApp).toBeTruthy();
-  });
-  it('renders text expectedly', () => {
-    renderApp();
-    expect(document.getElementById('js-div').innerHTML).toBe('Hello JavaScript!');
   });
 });
