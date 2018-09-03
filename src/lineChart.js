@@ -1,7 +1,7 @@
 import { line } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
-import { max } from 'd3-array';
+import { max, min } from 'd3-array';
 
 const dataIsValid = data => {
   return data && data.length > 0;
@@ -22,7 +22,7 @@ export default (container, data) => {
     .domain([0, data.length-1])
     .range([0, width]);
   const yScale = scaleLinear()
-    .domain([max(data), 0])
+    .domain([max(data), min(data)])
     .range([margin, height - margin]);
 
   const myLine = line()
