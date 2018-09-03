@@ -1,5 +1,7 @@
 import renderLine from './lineChart';
 
-const data = [2, 6, 1, 9, 8, 7];
-renderLine(data);
+renderLine(
+  document.getElementById('chart-container'),
+  [2, 6, 1, 9, 8, 7]
+);
 

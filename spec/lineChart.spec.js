@@ -21,29 +21,34 @@ describe('renderLine', () => {
   afterEach(() => {
     document.body.innerHTML = '';
   });
-  it('imports function', () => {
-    expect(renderLine).toBeTruthy();
-  });
-  it('does not render anything when data is missing', () => {
-    renderLine();
-    const chartContainer = document.getElementById('chart-container');
-    expect(chartContainer.childNodes.length).toBe(0);
+  it('does not render anything when data and container is missing', () => {
+    const resultContainer = renderLine(undefined, undefined);
+    expect(resultContainer).toBeUndefined();
   });
   it('does not render anything when data is empty', () => {
-    renderLine([]);
-    const chartContainer = document.getElementById('chart-container');
-    expect(chartContainer.childNodes.length).toBe(0);
+    const resultContainer = renderLine(document.getElementById('chart-container'), []);
+    expect(resultContainer).toBeUndefined();
   });
-  it('does render expected line' ,() => {
-    renderLine([1, 2, 5]);
-
+  it('does not render anything when container is missing', () => {
+    const resultContainer = renderLine(undefined, [1, 2, 5]);
+    expect(resultContainer).toBeUndefined();
+  });
+  it('does render expected line', () => {
     const chartContainer = document.getElementById('chart-container');
-    expect(chartContainer.childNodes.length).toBe(1);
+    const resultContainer = renderLine(chartContainer, [1, 2, 5]);
 
-    expect(document.getElementById('chart-svg')).toBeDefined();
-    expect(document.getElementById('chart-line')).toBeDefined();
+    const resultSvg = resultContainer.childNodes[0];
+    expect(resultSvg).toBeDefined();
+    expect(resultSvg.id).toBe('chart-svg');
+    expect(resultSvg.getAttribute('width')).toBe('800');
+    expect(resultSvg.getAttribute('height')).toBe('200');
 
-    expect(document.getElementById('chart-line').getAttribute('d').length)
-       .toBeGreaterThan(0);
+    const resultLine = resultSvg.childNodes[0];
+    expect(resultLine).toBeDefined();
+    expect(resultLine.id).toBe('chart-line');
+    expect(resultLine.getAttribute('d').length).toBeGreaterThan(0);
+    expect(resultLine.getAttribute('fill')).toBe('none');
+    expect(resultLine.getAttribute('stroke')).toBe('blue');
+    expect(resultLine.getAttribute('stroke-width')).toBe('3');
   });
 });

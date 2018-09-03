@@ -7,13 +7,12 @@ const dataIsValid = data => {
   return data && data.length > 0;
 };
 
-export default data => {
-  if (!dataIsValid(data)) {
+export default (container, data) => {
+  if (!dataIsValid(data) || !container) {
     return;
   }
 
-  const height = 200;
-  const width = 800;
+  const height = 200, width = 800;
 
   const xScale = scaleLinear()
     .domain([0, data.length-1])
@@ -26,7 +25,7 @@ export default data => {
     .x((d, i) => xScale(i))
     .y(d => yScale(d));
 
-  const svg = select('#chart-container')
+  const svg = select(container)
     .append('svg')
     .attr('id', 'chart-svg')
     .attr('width', width)
@@ -36,11 +35,11 @@ export default data => {
     .attr('id', 'chart-line')
     .datum(data)
     .attr('fill', 'none')
-    .attr('stroke', 'yellow')
+    .attr('stroke', 'blue')
     .attr('stroke-width', 3)
     .attr('d', myLine);
 
-  return svg;
+  return container;
 };
 
 export {
