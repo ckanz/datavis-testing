@@ -8,8 +8,12 @@ const dataIsValid = data => {
 };
 
 export default (container, data) => {
-  if (!dataIsValid(data) || !container) {
+  if (!container) {
     return;
+  }
+  if (!dataIsValid(data)) {
+    container.innerHTML = 'Missing or invalid data';
+    return container;
   }
 
   const height = 200, width = 800;

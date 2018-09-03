@@ -13,28 +13,20 @@ describe('dataIsValid', () => {
 });
 
 describe('renderLine', () => {
-  beforeEach(() => {
-    const myDiv = document.createElement('div');
-    myDiv.id = 'chart-container';
-    document.body.appendChild(myDiv);
-  });
-  afterEach(() => {
-    document.body.innerHTML = '';
-  });
   it('does not render anything when data and container is missing', () => {
     const resultContainer = renderLine(undefined, undefined);
     expect(resultContainer).toBeUndefined();
   });
-  it('does not render anything when data is empty', () => {
-    const resultContainer = renderLine(document.getElementById('chart-container'), []);
-    expect(resultContainer).toBeUndefined();
+  it('does show message when data is empty', () => {
+    const resultContainer = renderLine(document.createElement('div'), []);
+    expect(resultContainer.innerHTML).toBe('Missing or invalid data');
   });
   it('does not render anything when container is missing', () => {
     const resultContainer = renderLine(undefined, [1, 2, 5]);
     expect(resultContainer).toBeUndefined();
   });
   it('does render expected line', () => {
-    const chartContainer = document.getElementById('chart-container');
+    const chartContainer = document.createElement('div');
     const resultContainer = renderLine(chartContainer, [1, 2, 5]);
 
     const resultSvg = resultContainer.childNodes[0];
