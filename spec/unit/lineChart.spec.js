@@ -1,4 +1,4 @@
-import renderLine, { dataIsValid } from '../src/lineChart';
+import renderLine, { dataIsValid } from '../../src/lineChart';
 
 describe('dataIsValid', () => {
   it('recognises correct data', () => {
