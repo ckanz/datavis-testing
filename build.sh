@@ -1,7 +1,10 @@
 set -e
 
 npm i
+
 npm run build
-npm test
-npm run e2e
-npm run visual-regression
+
+npm run test:unit
+npm run test:integration
+npm run test:e2e
+npm run test:visual-regression

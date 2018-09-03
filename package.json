@@ -6,10 +6,12 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack-dev-server",
-    "watch:test": "karma start --auto-watch --no-single-run --reporters dots",
-    "test": "karma start",
-    "visual-regression": "casperjs test spec/visual-regression/visual-regression.js",
-    "e2e": "casperjs test spec/e2e/e2e.js"
+    "watch:test:unit": "karma start karma.unit.config.js --auto-watch --no-single-run --reporters dots",
+    "watch:test:integration": "karma start karma.integration.config.js --auto-watch --no-single-run --reporters dots",
+    "test:unit": "karma start karma.unit.config.js",
+    "test:integration": "karma start karma.integration.config.js",
+    "test:visual-regression": "casperjs test spec/visual-regression/visual-regression.js",
+    "test:e2e": "casperjs test spec/e2e/e2e.js"
   },
   "repository": {
     "type": "git",

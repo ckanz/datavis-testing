@@ -1,15 +1,11 @@
 import renderLine from './lineChart';
+import data from './data';
 
 const renderApp = () => {
 
-  const dataArray = [];
-  for (let i=0; i<25; i+= .1) {
-    dataArray.push(Math.sin(i) + 1);
-  }
-
   renderLine(
     document.getElementById('chart-container'),
-    dataArray
+    data
   );
 };
 

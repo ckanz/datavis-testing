@@ -1,12 +1,12 @@
 var webpack = require('webpack');
 
-module.exports = config => {
+module.exports = (config) => {
   config.set({
     browsers: ['PhantomJS'],
     singleRun: true,
     frameworks: ['jasmine'],
     files: [
-      'spec/**/*.spec.js',
+      'spec/unit/**/*.spec.js',
     ],
     preprocessors: {
       'src/**/*.js': ['webpack'],
@@ -14,6 +14,7 @@ module.exports = config => {
     },
     reporters: ['mocha'],
     webpack: {
+      mode: 'production',
       module: {
         rules: [
           {
@@ -22,7 +23,7 @@ module.exports = config => {
               {
                 loader: 'babel-loader',
                 query: {
-                  presets: ['env']
+                  presets: ['@babel/preset-env']
                 }
               }
             ],
