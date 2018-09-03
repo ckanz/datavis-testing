@@ -7,7 +7,8 @@
     "build": "webpack",
     "serve": "webpack-dev-server",
     "watch:test": "karma start --auto-watch --no-single-run --reporters dots",
-    "test": "karma start"
+    "test": "karma start",
+    "e2e": "casperjs test spec/e2e/e2e.js"
   },
   "repository": {
     "type": "git",
