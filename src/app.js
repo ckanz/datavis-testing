@@ -1,7 +1,17 @@
 import renderLine from './lineChart';
 
-renderLine(
-  document.getElementById('chart-container'),
-  [2, 6, 1, 9, 8, 7]
-);
+const renderApp = () => {
 
+  const dataArray = [];
+  for (let i=0; i<50; i++) {
+    dataArray.push(Math.random(0,1000));
+  }
+
+  renderLine(
+    document.getElementById('chart-container'),
+    dataArray
+  );
+};
+
+renderApp();
+export default renderApp;

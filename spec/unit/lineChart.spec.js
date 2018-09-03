@@ -30,13 +30,11 @@ describe('renderLine', () => {
     const resultContainer = renderLine(chartContainer, [1, 2, 5]);
 
     const resultSvg = resultContainer.childNodes[0];
-    expect(resultSvg).toBeDefined();
     expect(resultSvg.id).toBe('chart-svg');
     expect(resultSvg.getAttribute('width')).toBe('800');
     expect(resultSvg.getAttribute('height')).toBe('200');
 
     const resultLine = resultSvg.childNodes[0];
-    expect(resultLine).toBeDefined();
     expect(resultLine.id).toBe('chart-line');
     expect(resultLine.getAttribute('d').length).toBeGreaterThan(0);
     expect(resultLine.getAttribute('fill')).toBe('none');
