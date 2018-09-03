@@ -3,10 +3,20 @@ import { scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
 import { max } from 'd3-array';
 
-export default () => {
-  const data = [2, 6, 1, 9, 8, 7];
-  const height = 200;
-  const width = 800;
+const dataIsValid = data => {
+  return data && data.length > 0;
+};
+
+export default (container, data) => {
+  if (!container) {
+    return;
+  }
+  if (!dataIsValid(data)) {
+    container.innerHTML = 'Missing or invalid data';
+    return container;
+  }
+
+  const height = 200, width = 800;
 
   const xScale = scaleLinear()
     .domain([0, data.length-1])
@@ -19,15 +29,23 @@ export default () => {
     .x((d, i) => xScale(i))
     .y(d => yScale(d));
 
-  const svg = select('#chart-container')
+  const svg = select(container)
     .append('svg')
+    .attr('id', 'chart-svg')
     .attr('width', width)
     .attr('height', height);
 
   svg.append('path')
+    .attr('id', 'chart-line')
     .datum(data)
     .attr('fill', 'none')
-    .attr('stroke', 'yellow')
+    .attr('stroke', 'blue')
     .attr('stroke-width', 3)
     .attr('d', myLine);
+
+  return container;
+};
+
+export {
+  dataIsValid
 };
