@@ -16,14 +16,14 @@ export default (container, data) => {
     return container;
   }
 
-  const height = 200, width = 800;
+  const height = 200, width = 800, margin = 10;
 
   const xScale = scaleLinear()
     .domain([0, data.length-1])
     .range([0, width]);
   const yScale = scaleLinear()
     .domain([max(data), 0])
-    .range([0, height]);
+    .range([margin, height - margin]);
 
   const myLine = line()
     .x((d, i) => xScale(i))
