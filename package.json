@@ -8,6 +8,7 @@
     "serve": "webpack-dev-server",
     "watch:test": "karma start --auto-watch --no-single-run --reporters dots",
     "test": "karma start",
+    "visual-regression": "casperjs test spec/visual-regression/visual-regression.js",
     "e2e": "casperjs test spec/e2e/e2e.js"
   },
   "repository": {
@@ -33,6 +34,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-webpack": "^3.0.0",
+    "phantomcss": "^1.5.0",
     "phantomjs": "^2.1.7",
     "style-loader": "^0.23.0",
     "webpack": "^4.17.1",
