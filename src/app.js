@@ -1,15 +1,12 @@
 import renderLine from './lineChart';
+import data from './data';
+import './style.css';
 
 const renderApp = () => {
 
-  const dataArray = [];
-  for (let i=0; i<50; i++) {
-    dataArray.push(Math.random(0,1000));
-  }
-
   renderLine(
     document.getElementById('chart-container'),
-    dataArray
+    data
   );
 };
 

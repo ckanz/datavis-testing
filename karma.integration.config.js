@@ -2,12 +2,11 @@ var webpack = require('webpack');
 
 module.exports = (config) => {
   config.set({
-    browsers: [ 'PhantomJS' ],
-    // logLevel: config.LOG_DEBUG,
+    browsers: ['PhantomJS'],
     singleRun: true,
     frameworks: ['jasmine'],
     files: [
-      'spec/**/*.spec.js',
+      'spec/integration/**/*.spec.js',
     ],
     preprocessors: {
       'src/**/*.js': ['webpack'],
@@ -29,6 +28,10 @@ module.exports = (config) => {
               }
             ],
             exclude: /node_modules/
+          },
+          {
+            test: /\.css$/,
+            loader: ['style-loader', 'css-loader']
           }
         ]
       }

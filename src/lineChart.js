@@ -1,7 +1,7 @@
 import { line } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
-import { max } from 'd3-array';
+import { max, min } from 'd3-array';
 
 const dataIsValid = data => {
   return data && data.length > 0;
@@ -16,14 +16,14 @@ export default (container, data) => {
     return container;
   }
 
-  const height = 200, width = 800;
+  const height = 200, width = 800, margin = 10;
 
   const xScale = scaleLinear()
     .domain([0, data.length-1])
     .range([0, width]);
   const yScale = scaleLinear()
-    .domain([max(data), 0])
-    .range([0, height]);
+    .domain([max(data), min(data)])
+    .range([margin, height - margin]);
 
   const myLine = line()
     .x((d, i) => xScale(i))
@@ -39,7 +39,7 @@ export default (container, data) => {
     .attr('id', 'chart-line')
     .datum(data)
     .attr('fill', 'none')
-    .attr('stroke', 'blue')
+    .attr('stroke', '#b6c630')
     .attr('stroke-width', 3)
     .attr('d', myLine);
 
