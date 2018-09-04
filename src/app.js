@@ -10,7 +10,5 @@ const renderApp = () => {
   );
 };
 
-console.log(data.length);
-
 renderApp();
 export default renderApp;

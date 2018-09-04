@@ -26,7 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "babel-loader": "^8.0.0",
+    "babel-loader": "^8.0.2",
     "casperjs": "^1.1.4",
     "css-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
@@ -35,11 +35,11 @@
     "karma-jasmine": "^1.1.2",
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
-    "karma-webpack": "^3.0.0",
+    "karma-webpack": "^3.0.2",
     "phantomcss": "^1.5.0",
     "phantomjs": "^2.1.7",
     "style-loader": "^0.23.0",
-    "webpack": "^4.17.1",
+    "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.7"
   },
