@@ -39,7 +39,7 @@ export default (container, data) => {
     .attr('id', 'chart-line')
     .datum(data)
     .attr('fill', 'none')
-    .attr('stroke', 'blue')
+    .attr('stroke', '#b6c630')
     .attr('stroke-width', 3)
     .attr('d', myLine);
 

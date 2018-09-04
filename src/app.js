@@ -1,5 +1,6 @@
 import renderLine from './lineChart';
 import data from './data';
+import './style.css';
 
 const renderApp = () => {
 
@@ -8,6 +9,8 @@ const renderApp = () => {
     data
   );
 };
+
+console.log(data.length);
 
 renderApp();
 export default renderApp;

@@ -38,7 +38,7 @@ describe('renderLine', () => {
     expect(resultLine.id).toBe('chart-line');
     expect(resultLine.getAttribute('d').length).toBeGreaterThan(0);
     expect(resultLine.getAttribute('fill')).toBe('none');
-    expect(resultLine.getAttribute('stroke')).toBe('blue');
+    expect(resultLine.getAttribute('stroke')).toBe('#b6c630');
     expect(resultLine.getAttribute('stroke-width')).toBe('3');
   });
 });
