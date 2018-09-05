@@ -26,8 +26,7 @@ describe('renderLine', () => {
     expect(resultContainer).toBeUndefined();
   });
   it('does render expected line', () => {
-    const chartContainer = document.createElement('div');
-    const resultContainer = renderLine(chartContainer, [1, 2, 5]);
+    const resultContainer = renderLine(document.createElement('div'), [1, 2, 5]);
 
     const resultSvg = resultContainer.childNodes[0];
     expect(resultSvg.id).toBe('chart-svg');

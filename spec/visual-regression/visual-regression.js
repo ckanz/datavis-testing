@@ -1,5 +1,20 @@
 const phantomcss = require('phantomcss');
 const fs = require('fs');
+const server = require('webserver').create();
+
+const html = fs.read('./dist/index.html');
+const bundle = fs.read('./dist/bundle.js');
+
+server.listen(8080, function(req, res) {
+  console.log(req.url);
+  res.statusCode = 200;
+  if (req.url === '/bundle.js') {
+    res.write(bundle);
+  } else {
+    res.write(html);
+  }
+  res.close();
+});
 
 casper.test.begin( 'Line chart visual tests', function ( test ) {
   phantomcss.init({
