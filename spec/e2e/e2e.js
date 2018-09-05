@@ -15,19 +15,30 @@ server.listen(8080, function(req, res) {
   res.close();
 });
 
-casper.test.begin('The heading exists', 1, function suite(test) {
+casper.test.begin('button is displayed', 1, function suite(test) {
   casper.start('http://localhost:8080', function() {
-    test.assertTitle('Chart Testing Example', 'title is the one expected');
+    test.assertAllVisible('#launch-button', 'launch button is visible');
   }).run(function() {
     test.done();
   });
 });
 
-casper.test.begin('All elements are displayed', 3, function suite(test) {
+casper.test.begin('Chart is launched on click of button', 3, function suite(test) {
   casper.start('http://localhost:8080', function() {
+    this.click('#launch-button');
     test.assertAllVisible('#chart-container', 'chart container is visible');
     test.assertAllVisible('#chart-svg', 'chart svg is visible');
     test.assertAllVisible('#chart-line', 'chart line is visible');
+  }).run(function() {
+    test.done();
+  });
+});
+
+casper.test.begin('Footer displayed on line interaction', 1, function suite(test) {
+  casper.start('http://localhost:8080', function() {
+    this.click('#launch-button');
+    this.mouseEvent('mouseover', '#chart-line');
+    test.assertAllVisible('#footer', 'footer is visible');
   }).run(function() {
     test.done();
   });

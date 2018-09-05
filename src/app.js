@@ -2,13 +2,21 @@ import renderLine from './lineChart';
 import data from './data';
 import './style.css';
 
-const renderApp = () => {
+const launchButton = document.getElementById('launch-button');
+const chartContainer = document.getElementById('chart-container');
 
+const renderApp = () => {
   renderLine(
-    document.getElementById('chart-container'),
+    chartContainer,
     data
   );
 };
 
-renderApp();
+if (launchButton) {
+  launchButton.addEventListener('click', event => {
+    renderApp();
+    document.getElementById('main').style.display = 'block';
+    event.currentTarget.style.display = 'none';
+  });
+}
 export default renderApp;

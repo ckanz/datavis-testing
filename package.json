@@ -10,8 +10,8 @@
     "watch:test:integration": "karma start karma.integration.config.js --auto-watch --no-single-run --reporters dots",
     "test:unit": "karma start karma.unit.config.js",
     "test:integration": "karma start karma.integration.config.js",
-    "test:visual-regression": "casperjs test spec/visual-regression/visual-regression.js",
-    "test:e2e": "casperjs test spec/e2e/e2e.js"
+    "test:visual-regression": "npm run build && casperjs test spec/visual-regression/visual-regression.js",
+    "test:e2e": "npm run build && casperjs test spec/e2e/e2e.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,6 @@
     "html-webpack-plugin": "^3.2.0",
     "jasmine-es6": "^0.4.3",
     "karma": "^3.0.0",
-    "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.2",
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "^1.0.4",

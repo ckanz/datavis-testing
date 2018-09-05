@@ -26,17 +26,30 @@ casper.test.begin( 'Line chart visual tests', function ( test ) {
   });
 
   casper.start('http://localhost:8080').then(function () {
-    phantomcss.screenshot('#main', 'overview screenshot');
+    phantomcss.screenshot('body', 'overview screenshot');
+    phantomcss.screenshot('#launch-button', 'launch button screenshot');
+  });
+  casper.then(function () {
+    this.click('#launch-button');
+    phantomcss.screenshot('#main', 'chart screenshot');
     phantomcss.screenshot('#title', 'title screenshot');
-    phantomcss.screenshot('#footer', 'footer screenshot');
     phantomcss.screenshot('#chart-line', 'line screenshot');
+    phantomcss.screenshot('#footer', 'footer  screenshot');
+  });
+  casper.then(function () {
+    this.click('#launch-button');
+    this.mouseEvent('mouseover', '#chart-line');
+    phantomcss.screenshot('#main', 'chart screenshot');
+    phantomcss.screenshot('#title', 'title screenshot');
+    phantomcss.screenshot('#chart-line', 'line screenshot');
+    phantomcss.screenshot('#footer', 'footer screenshot');
   });
 
-  casper.then( function now_check_the_screenshots() {
+  casper.then(function () {
     phantomcss.compareAll();
   });
 
-  casper.run( function () {
+  casper.run(function () {
     casper.test.done();
   });
 });

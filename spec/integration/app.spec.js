@@ -5,6 +5,9 @@ describe('renderApp', () => {
     const myDiv = document.createElement('div');
     myDiv.id = 'chart-container';
     document.body.appendChild(myDiv);
+    const myButton = document.createElement('button');
+    myButton.id = 'launch-button';
+    document.body.appendChild(myButton);
   });
   afterEach(() => {
     document.body.innerHTML = '';

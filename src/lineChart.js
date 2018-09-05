@@ -41,7 +41,13 @@ export default (container, data) => {
     .attr('fill', 'none')
     .attr('stroke', '#b6c630')
     .attr('stroke-width', 3)
-    .attr('d', myLine);
+    .attr('d', myLine)
+    .on('mouseover', () => {
+      select('#footer').style('display', 'block');
+    })
+    .on('mouseout', () => {
+      select('#footer').style('display', 'none');
+    });
 
   return container;
 };
