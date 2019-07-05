@@ -24,29 +24,29 @@
   },
   "homepage": "https://github.com/ckanz/webpack-fe-template#readme",
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "babel-loader": "^8.0.2",
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "babel-loader": "^8.0.6",
     "casperjs": "^1.1.4",
-    "css-loader": "^1.0.0",
+    "css-loader": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
     "jasmine-es6": "^0.4.3",
-    "karma": "^3.0.0",
+    "karma": "^4.1.0",
     "karma-jasmine": "^1.1.2",
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
-    "karma-webpack": "^3.0.2",
-    "phantomcss": "^1.5.0",
+    "karma-webpack": "^4.0.2",
+    "phantomcss": "^1.6.0",
     "phantomjs": "^2.1.7",
-    "style-loader": "^0.23.0",
-    "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.7"
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
     "d3-array": "^1.2.4",
-    "d3-scale": "^2.1.2",
-    "d3-selection": "^1.3.2",
-    "d3-shape": "^1.2.2"
+    "d3-scale": "^2.2.2",
+    "d3-selection": "^1.4.0",
+    "d3-shape": "^1.3.5"
   }
 }
